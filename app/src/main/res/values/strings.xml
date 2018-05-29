@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">NewsApp</string>
+
+    <string name="business">business</string>
+    <string name="entertainment">entertainment</string>
+    <string name="health">health</string>
+    <string name="science">science</string>
+    <string name="sports">sports</string>
+    <string name="technology">technology</string>
+
+    <string name="top_stories">TOP STORIES</string>
+    <!-- TODO -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_title">JUWON LEE</string>
+    <string name="nav_header_subtitle">quf9345@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
 </resources>
