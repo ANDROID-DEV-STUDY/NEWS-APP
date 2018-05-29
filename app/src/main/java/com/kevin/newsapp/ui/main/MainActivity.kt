@@ -1,8 +1,10 @@
 package com.kevin.newsapp.ui.main
 
+import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.TabLayout
@@ -93,5 +95,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
         drawer_layout.closeDrawer(GravityCompat.END)
         return true
+    }
+
+    companion object {
+        fun start(context : Activity) = context.startActivity(Intent(context, MainActivity::class.java))
     }
 }
