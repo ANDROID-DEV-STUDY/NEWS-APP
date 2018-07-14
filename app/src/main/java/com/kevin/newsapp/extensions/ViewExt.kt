@@ -23,3 +23,7 @@ fun ViewGroup.inflate(resId : Int, attachToRoot : Boolean)
 
 fun View.snackbar(message : String)
     = Snackbar.make(this, message, Snackbar.LENGTH_LONG).show()
+
+fun View.visible() = this.apply { visibility = View.VISIBLE }
+
+fun View.gone() = this.apply { visibility = View.GONE }

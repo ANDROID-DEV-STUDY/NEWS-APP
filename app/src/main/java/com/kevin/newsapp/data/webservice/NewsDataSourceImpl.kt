@@ -10,9 +10,9 @@ class NewsDataSourceImpl @Inject constructor(
         private val api : NewsService
 ) : NewsDataSource {
 
-    override fun topHeadlines(country : String, apiKey : String) : Flowable<Response>
-            = api.topHeadlines(country, apiKey)
+    override fun topHeadlines(apiKey : String) : Flowable<Response>
+            = api.topHeadlines(key = apiKey)
 
     override fun categoryHeadlines(country : String, category : String, apiKey : String) : Flowable<Response>
-            = api.categoryHeadlines(country, category, apiKey)
+            = api.categoryHeadlines(category = category, key = apiKey)
 }

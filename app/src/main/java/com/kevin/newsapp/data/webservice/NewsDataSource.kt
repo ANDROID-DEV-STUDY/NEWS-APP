@@ -5,7 +5,7 @@ import io.reactivex.Flowable
 
 interface NewsDataSource {
 
-    fun topHeadlines(country : String, apiKey : String) : Flowable<Response>
+    fun topHeadlines(apiKey : String) : Flowable<Response>
 
-    fun categoryHeadlines(country : String, category : String, apiKey : String) : Flowable<Response>
+    fun categoryHeadlines(category : String, apiKey : String) : Flowable<Response>
 }

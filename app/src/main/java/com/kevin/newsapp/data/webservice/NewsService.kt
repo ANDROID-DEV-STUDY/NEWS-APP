@@ -8,11 +8,11 @@ import retrofit2.http.Query
 interface NewsService {
 
     @GET("top-headlines")
-    fun topHeadlines(@Query("country") country : String,
+    fun topHeadlines(@Query("country") country : String = "kr",
                     @Query("apiKey") key : String) : Flowable<Response>
 
     @GET("top-headlines")
-    fun categoryHeadlines(@Query("country") country : String,
+    fun categoryHeadlines(@Query("country") country : String = "kr",
                  @Query("category") category : String,
                  @Query("apiKey") key : String) : Flowable<Response>
 

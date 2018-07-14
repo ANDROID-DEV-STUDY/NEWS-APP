@@ -1,4 +1,4 @@
-package com.kevin.newsapp.di
+package com.kevin.newsapp.di.module
 
 import android.app.Application
 import com.kevin.newsapp.data.webservice.NewsService
@@ -11,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -31,6 +32,9 @@ class NetworkModule {
     fun provideOkhttpClient(interceptor: Interceptor, cache : Cache) : OkHttpClient
         = OkHttpClient.Builder()
             .addInterceptor(interceptor)
+            .connectTimeout(15L, TimeUnit.SECONDS)
+            .writeTimeout(15L, TimeUnit.SECONDS)
+            .readTimeout(15L, TimeUnit.SECONDS)
             .cache(cache)
             .build()
 

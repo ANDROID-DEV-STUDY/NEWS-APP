@@ -1,4 +1,4 @@
-package com.kevin.newsapp.di
+package com.kevin.newsapp.di.module
 
 import com.kevin.newsapp.data.repository.HeadlineRepository
 import com.kevin.newsapp.data.repository.HeadlineRepositoryImpl
