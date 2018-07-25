@@ -16,5 +16,7 @@ class HealthFragment : Fragment() {
         return inflater.inflate(R.layout.headline_child_fragment_health, container, false)
     }
 
-
+    companion object {
+        fun newInstance(): HealthFragment = HealthFragment()
+    }
 }

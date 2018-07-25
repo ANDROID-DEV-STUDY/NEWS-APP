@@ -28,7 +28,7 @@ class RoundedCornersTransformation: BitmapTransformation() {
                     shader = BitmapShader(toTransform, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
                 }
 
-        canvas.drawRoundRect(RectF(0f, 0f, width.toFloat(), height.toFloat()), 10f, 10f, paint)
+        canvas.drawRoundRect(RectF(0f, 0f, width.toFloat(), height.toFloat()), 24f, 24f, paint)
 
         return bitmap
     }

@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.kevin.newsapp.R
 
 class BusinessFragment : Fragment() {
@@ -16,5 +15,7 @@ class BusinessFragment : Fragment() {
         return inflater.inflate(R.layout.headline_child_fragment_business, container, false)
     }
 
-
+    companion object {
+        fun newInstance(): BusinessFragment = BusinessFragment()
+    }
 }

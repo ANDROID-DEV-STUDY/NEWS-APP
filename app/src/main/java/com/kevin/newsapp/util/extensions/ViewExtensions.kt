@@ -9,8 +9,10 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
+import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -63,4 +65,25 @@ fun setUpTabPager(tabLayout: TabLayout, viewPager: ViewPager) {
 
         override fun onTabSelected(tab: TabLayout.Tab) { viewPager.currentItem = tab.position }
     })
+}
+
+/**
+ * wrap_content?
+ */
+fun View.onGlobalLayout(func: () -> Unit) {
+    viewTreeObserver.addOnGlobalLayoutListener(object: ViewTreeObserver.OnGlobalLayoutListener {
+        override fun onGlobalLayout() {
+            func()
+            viewTreeObserver.removeOnGlobalLayoutListener(this)
+        }
+    })
+}
+
+fun LottieAnimationView.autoScaling(requestedScale: Float) {
+    post {
+        val screenWidth = context.resources.displayMetrics.widthPixels
+        val compWidth = composition?.bounds?.width() ?: width
+        val finalScale = screenWidth / compWidth * requestedScale
+        scale = finalScale
+    }
 }

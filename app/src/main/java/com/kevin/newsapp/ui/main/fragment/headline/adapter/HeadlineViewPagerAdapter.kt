@@ -3,7 +3,6 @@ package com.kevin.newsapp.ui.main.fragment.headline.adapter
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import android.view.View
 import android.view.ViewGroup
 import com.kevin.newsapp.ui.main.fragment.headline.childfragment.business.BusinessFragment
 import com.kevin.newsapp.ui.main.fragment.headline.childfragment.entertainment.EntertainmentFragment
@@ -21,21 +20,18 @@ class HeadlineViewPagerAdapter constructor(manager: FragmentManager): FragmentSt
 
     override fun getItem(position: Int): Fragment {
         return when(position) {
-            0 -> TopFragment()
-            1 -> BusinessFragment()
-            2 -> EntertainmentFragment()
-            3 -> SportsFragment()
-            4 -> TechnologyFragment()
-            5 -> HealthFragment()
-            6 -> ScienceFragment()
+            0 -> TopFragment.newInstance()
+            1 -> BusinessFragment.newInstance()
+            2 -> EntertainmentFragment.newInstance()
+            3 -> SportsFragment.newInstance()
+            4 -> TechnologyFragment.newInstance()
+            5 -> HealthFragment.newInstance()
+            6 -> ScienceFragment.newInstance()
             else -> throw IllegalArgumentException("Unexpected error")
         }
     }
 
     override fun getCount(): Int = 7
 
-    override fun isViewFromObject(view: View, `object`: Any): Boolean = (view == `object`)
-
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any)
-            = container.removeView(`object` as View)
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) { /* NOTHING */ }
 }

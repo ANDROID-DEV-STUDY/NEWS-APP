@@ -16,5 +16,7 @@ class SportsFragment : Fragment() {
         return inflater.inflate(R.layout.headline_child_fragment_sports, container, false)
     }
 
-
+    companion object {
+        fun newInstance(): SportsFragment = SportsFragment()
+    }
 }

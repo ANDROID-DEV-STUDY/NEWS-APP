@@ -16,5 +16,7 @@ class TechnologyFragment : Fragment() {
         return inflater.inflate(R.layout.headline_child_fragment_technology, container, false)
     }
 
-
+    companion object {
+        fun newInstance():TechnologyFragment = TechnologyFragment()
+    }
 }

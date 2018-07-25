@@ -16,4 +16,7 @@ class ScienceFragment : Fragment() {
         return inflater.inflate(R.layout.headline_child_fragment_science, container, false)
     }
 
+    companion object {
+        fun newInstance(): ScienceFragment = ScienceFragment()
+    }
 }

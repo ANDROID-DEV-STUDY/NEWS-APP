@@ -16,4 +16,7 @@ class EntertainmentFragment : Fragment() {
         return inflater.inflate(R.layout.headline_child_fragment_entertainment, container, false)
     }
 
+    companion object {
+        fun newInstance(): EntertainmentFragment = EntertainmentFragment()
+    }
 }
