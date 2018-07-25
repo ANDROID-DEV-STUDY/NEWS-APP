@@ -1,13 +1,10 @@
 package com.kevin.newsapp.ui.splash
 
-import android.animation.Animator
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import com.kevin.newsapp.R
-import com.kevin.newsapp.ui.main.MainActivity
-import kotlinx.android.synthetic.main.activity_splash.*
+import com.kevin.newsapp.ui.main.activity.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -15,6 +12,11 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
+    /*
         animation_view.apply {
             addAnimatorListener(object : Animator.AnimatorListener {
                 override fun onAnimationRepeat(animation: Animator?) {}
@@ -31,5 +33,5 @@ class SplashActivity : AppCompatActivity() {
                 override fun onAnimationStart(animation: Animator?) {}
             })
         }
-    }
+        */
 }

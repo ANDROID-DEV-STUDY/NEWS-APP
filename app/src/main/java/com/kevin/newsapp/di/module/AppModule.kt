@@ -1,19 +1,18 @@
 package com.kevin.newsapp.di.module
 
+import android.app.Application
 import android.content.Context
 import com.kevin.newsapp.NewsApp
-import com.kevin.newsapp.ui.main.MainActivity
 import dagger.Binds
 import dagger.Module
-import dagger.android.ContributesAndroidInjector
 import javax.inject.Singleton
 
 @Module
 abstract class AppModule {
 
     @Binds @Singleton
-    abstract fun applicationContext(newsApp : NewsApp) : Context
+    abstract fun provideApplication(newsApp: NewsApp): Application
 
-    @ContributesAndroidInjector
-    abstract fun contributesMainActivity() : MainActivity
+    @Binds @Singleton
+    abstract fun provideContext(newsApp : NewsApp): Context
 }

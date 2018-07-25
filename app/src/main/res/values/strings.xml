@@ -1,19 +1,35 @@
 <resources>
-    <string name="app_name">NewsApp</string>
+    <string name="app_name">뉴스</string>
 
-    <string name="business">business</string>
-    <string name="entertainment">entertainment</string>
-    <string name="health">health</string>
-    <string name="science">science</string>
-    <string name="sports">sports</string>
-    <string name="technology">technology</string>
+    <!-- category -->
+    <string name="top">TOP</string>
+    <string name="business">비즈니스</string>
+    <string name="entertainment">엔터테인먼트</string>
+    <string name="sports">스포츠</string>
+    <string name="health">건강</string>
+    <string name="science">과학</string>
+    <string name="technology">기술</string>
 
-    <string name="top_stories">TOP STORIES</string>
-    <!-- TODO -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- navigator -->
+    <string name="headline">헤드라인</string>
+    <string name="video">비디오</string>
+    <string name="discover">탐색</string>
+    <string name="profile">프로필</string>
 
-    <string name="nav_header_title">JUWON LEE</string>
-    <string name="nav_header_subtitle">quf9345@gmail.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- search -->
+    <string name="cancel">CANCEL</string>
+    <string name="hint">검색어 입력</string>
+
+    <!-- media -->
+    <string name="trending">트렌드</string>
+    <string name="kbs">KBS</string>
+    <string name="sbs">SBS</string>
+    <string name="mbc">MBC</string>
+    <string name="ytn">YTN</string>
+    <string name="jtbc">JTBC</string>
+    <string name="yonhap">연합뉴스</string>
+    <string name="tvchosun">TV조선</string>
 </resources>

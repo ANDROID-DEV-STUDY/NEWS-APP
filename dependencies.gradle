@@ -1,0 +1,22 @@
+ext {
+    minSdkVersion = 19
+    compileSdkVersion = 27
+    targetSdkVersion = 27
+
+    kotlinVersion = '1.2.41'
+    androidPlugInVersion = '3.1.2'
+    realmVersion = '5.1.0'
+
+    supportLibraryVersion = '27.1.1'
+    constraintLayoutVersion = '1.1.2'
+    archComponentVersion = '1.1.1'
+    retrofitVersion = '2.4.0'
+    okhttpVersion = '3.10.0'
+    rxkotlinVersion = '2.2.0'
+    rxjavaVersion = '2.1.14'
+    rxandroidVersion = '2.0.2'
+    rxbindingVersion = '2.1.1'
+    daggerVersion = '2.15'
+    glideVersion = '4.7.1'
+    lottieVersion = '2.5.5'
+}

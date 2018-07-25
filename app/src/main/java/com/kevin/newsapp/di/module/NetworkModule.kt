@@ -1,7 +1,7 @@
 package com.kevin.newsapp.di.module
 
 import android.app.Application
-import com.kevin.newsapp.data.webservice.NewsService
+import com.kevin.newsapp.data.webservice.news.NewsApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -12,23 +12,21 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 class NetworkModule {
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideInterceptor() : Interceptor
             = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideCache(app : Application) : Cache
             = Cache(app.cacheDir, 10 * 10 * 1024L)
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideOkhttpClient(interceptor: Interceptor, cache : Cache) : OkHttpClient
         = OkHttpClient.Builder()
             .addInterceptor(interceptor)
@@ -38,35 +36,43 @@ class NetworkModule {
             .cache(cache)
             .build()
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideGsonConverterFactory() : GsonConverterFactory
         = GsonConverterFactory.create()
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideRxJava2CallAdapterFactory() : RxJava2CallAdapterFactory
             = RxJava2CallAdapterFactory.create()
 
-    @Provides
-    @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient,
+    @Provides @Singleton @Named("news_retrofit")
+    fun provideNewsRetrofit(okHttpClient: OkHttpClient,
                         gsonConverterFactory: GsonConverterFactory,
                         rxJava2CallAdapterFactory: RxJava2CallAdapterFactory) : Retrofit
         = Retrofit.Builder()
             .addConverterFactory(gsonConverterFactory)
             .addCallAdapterFactory(rxJava2CallAdapterFactory)
-            .baseUrl(BASE_URL)
+            .baseUrl(NEWS_BASE_URL)
             .client(okHttpClient)
             .build()
 
-    @Provides
-    @Singleton
-    fun provideNewsService(retrofit: Retrofit) : NewsService
-        = retrofit.create(NewsService::class.java)
+    @Provides @Singleton @Named("youtube_retrofit")
+    fun provideYoutubeRetrofit(okHttpClient: OkHttpClient,
+                            gsonConverterFactory: GsonConverterFactory,
+                            rxJava2CallAdapterFactory: RxJava2CallAdapterFactory) : Retrofit
+            = Retrofit.Builder()
+            .addConverterFactory(gsonConverterFactory)
+            .addCallAdapterFactory(rxJava2CallAdapterFactory)
+            .baseUrl(YOUTUBE_BASE_URL)
+            .client(okHttpClient)
+            .build()
+
+    @Provides @Singleton
+    fun provideNewsApi(@Named("news_retrofit") retrofit: Retrofit) : NewsApi
+        = retrofit.create(NewsApi::class.java)
 
     companion object {
-        const val BASE_URL = "https://newsapi.org/v2/"
+        const val NEWS_BASE_URL = "https://newsapi.org/v2/"
+        const val YOUTUBE_BASE_URL = "https://www.googleapis.com/youtube/v3/"
     }
 }
 
