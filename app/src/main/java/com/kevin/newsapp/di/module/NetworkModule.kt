@@ -1,6 +1,8 @@
 package com.kevin.newsapp.di.module
 
 import android.app.Application
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.kevin.newsapp.data.webservice.news.NewsApi
 import dagger.Module
 import dagger.Provides
@@ -37,8 +39,12 @@ class NetworkModule {
             .build()
 
     @Provides @Singleton
-    fun provideGsonConverterFactory() : GsonConverterFactory
-        = GsonConverterFactory.create()
+    fun provideGson(): Gson
+            = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create()
+
+    @Provides @Singleton
+    fun provideGsonConverterFactory(gson: Gson) : GsonConverterFactory
+        = GsonConverterFactory.create(gson)
 
     @Provides @Singleton
     fun provideRxJava2CallAdapterFactory() : RxJava2CallAdapterFactory

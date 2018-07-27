@@ -5,12 +5,14 @@ import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.kevin.newsapp.BR
 import com.kevin.newsapp.R
 import com.kevin.newsapp.data.model.news.NewsResponse
 import com.kevin.newsapp.databinding.ItemRecyclerViewTopBinding
 
 class TopRecyclerViewAdapter(
-        private val context: Context
+        private val context: Context,
+        private val listener: TopRecyclerViewItemClickListener
 ): RecyclerView.Adapter<TopRecyclerViewHolder>() {
 
     private var mData: NewsResponse? = null
@@ -26,8 +28,10 @@ class TopRecyclerViewAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopRecyclerViewHolder {
-        // TODO 분기 처리
         val binding = inflate(parent, R.layout.item_recycler_view_top)
+
+        binding.setVariable(BR.clickListener, listener)
+
         return TopRecyclerViewHolder(binding)
     }
 

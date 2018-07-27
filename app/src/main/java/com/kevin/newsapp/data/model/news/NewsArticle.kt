@@ -1,5 +1,7 @@
 package com.kevin.newsapp.data.model.news
 
+import java.util.*
+
 data class NewsArticle(
         val source : Source,
         val author : String?,
@@ -7,7 +9,7 @@ data class NewsArticle(
         val description : String,
         val url : String,
         val urlToImage : String?,
-        val publishedAt : String
+        val publishedAt : Date
 ) {
     data class Source(val id : String?,
                       val name : String?)

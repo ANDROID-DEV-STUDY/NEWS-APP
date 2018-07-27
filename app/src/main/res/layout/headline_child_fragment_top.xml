@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.main.fragment.headline.childfragment.top.TopFragment">
 
-    <android.support.v4.widget.NestedScrollView
+    <com.kevin.newsapp.view.TopNestedScrollView
+        android:id="@+id/topNestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -52,14 +53,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/topBarrier"
-                tools:listitem="@layout/item_recycler_view_top"/>
+                tools:listitem="@layout/item_recycler_view_top" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/topLoadingView"
@@ -74,5 +73,5 @@
                 app:lottie_loop="true" />
 
         </android.support.constraint.ConstraintLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </com.kevin.newsapp.view.TopNestedScrollView>
 </layout>

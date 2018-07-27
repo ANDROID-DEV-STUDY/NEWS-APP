@@ -1,18 +1,26 @@
 package com.kevin.newsapp.ui.main.fragment.headline
 
+import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
+import android.transition.ChangeBounds
+import android.transition.TransitionManager
 import com.kevin.newsapp.R
 import com.kevin.newsapp.databinding.FragmentHeadlineBinding
 import com.kevin.newsapp.ui.base.BaseFragment
 import com.kevin.newsapp.ui.main.fragment.headline.adapter.HeadlineViewPagerAdapter
+import com.kevin.newsapp.util.extensions.dpToPx
 import com.kevin.newsapp.util.extensions.setUpTabPager
+import com.kevin.newsapp.util.extensions.update
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class HeadlineFragment : BaseFragment<FragmentHeadlineBinding, HeadlineViewModel>(), HasSupportFragmentInjector {
-
+class HeadlineFragment:
+        BaseFragment<FragmentHeadlineBinding, HeadlineViewModel>(),
+        HasSupportFragmentInjector,
+        HeadlineTouchEventListener
+{
     @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
@@ -25,8 +33,27 @@ class HeadlineFragment : BaseFragment<FragmentHeadlineBinding, HeadlineViewModel
 
     override fun onCreateView() {
         with(mBinding) {
-            headlineViewPager.adapter = HeadlineViewPagerAdapter(childFragmentManager)
-            setUpTabPager(headlineTabLayout, headlineViewPager)
+            with(headlineViewPager) {
+                adapter = HeadlineViewPagerAdapter(childFragmentManager)
+                setUpTabPager(headlineTabLayout, this)
+            }
+        }
+    }
+
+    override fun onScale(isExpand: Boolean) {
+        val oldMargin = (mBinding.headlineGuideline.layoutParams as ConstraintLayout.LayoutParams).guideBegin
+        val newMargin = if(isExpand) dpToPx(56) else 0
+
+        if(newMargin != oldMargin) {
+            with(mBinding.headlineParentLayout) {
+                update {
+                    setGuidelineBegin(R.id.headlineGuideline, newMargin)
+
+                    TransitionManager.beginDelayedTransition(this@with, ChangeBounds().apply {
+                        duration = 500
+                    })
+                }
+            }
         }
     }
 
