@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.main.activity.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <data>
         <variable
             name="viewModel"
-            type="com.kevin.newsapp.ui.main.activity.MainViewModel"/>
+            type="com.kevin.newsapp.ui.main.MainViewModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -18,75 +18,76 @@
         android:background="@android:color/background_light">
 
         <android.support.constraint.Guideline
-            android:id="@+id/topGuideline"
+            android:id="@+id/mainTopGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_end="56dp" />
 
         <android.support.constraint.Guideline
-            android:id="@+id/bottomGuideline"
+            android:id="@+id/mainBottomGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_end="56dp" />
 
         <android.support.constraint.Guideline
-            android:id="@+id/startGuideline"
+            android:id="@+id/mainStartGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".0" />
 
         <android.support.constraint.Guideline
-            android:id="@+id/endGuideline"
+            android:id="@+id/mainEndGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="1." />
 
         <FrameLayout
-            android:id="@+id/fragmentContainer"
+            android:id="@+id/mainFragmentContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@android:color/background_light"
-            app:layout_constraintBottom_toTopOf="@+id/navigator"
+            app:layout_constraintBottom_toTopOf="@+id/mainBottomNavigator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <android.support.design.widget.BottomNavigationView
-            android:id="@+id/navigator"
+            android:id="@+id/mainBottomNavigator"
             android:layout_width="0dp"
             android:layout_height="@dimen/bottom_navigation_height"
             android:background="@color/colorPrimary"
-            app:itemIconTint="@drawable/bottom_navigation_color"
-            app:itemTextColor="@drawable/bottom_navigation_color"
+            android:theme="@style/BottomNavigationStyle"
+            app:itemIconTint="@drawable/bottom_navigation_selector"
+            app:itemTextColor="@drawable/bottom_navigation_selector"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_navigation_menu" />
 
         <FrameLayout
-            android:id="@+id/videoContainer"
+            android:id="@+id/mainVideoContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/LightGrey"
-            app:layout_constraintBottom_toTopOf="@+id/bottomGuideline"
-            app:layout_constraintEnd_toStartOf="@+id/endGuideline"
-            app:layout_constraintStart_toStartOf="@+id/startGuideline"
-            app:layout_constraintTop_toTopOf="@+id/topGuideline">
+            app:layout_constraintBottom_toTopOf="@+id/mainBottomGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/mainEndGuideline"
+            app:layout_constraintStart_toStartOf="@+id/mainStartGuideline"
+            app:layout_constraintTop_toTopOf="@+id/mainTopGuideline">
 
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/detailContainer"
+            android:id="@+id/mainDetailContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/navigator"
+            app:layout_constraintBottom_toTopOf="@+id/mainBottomNavigator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/bottomGuideline">
+            app:layout_constraintTop_toTopOf="@+id/mainBottomGuideline">
 
             <TextView
                 android:id="@+id/textView"

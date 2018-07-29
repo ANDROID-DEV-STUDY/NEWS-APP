@@ -8,9 +8,9 @@ class NewsRemoteDataSourceImpl @Inject constructor(
         private val api : NewsApi
 ) : NewsRemoteDataSource {
 
-    override fun topHeadlines() : Flowable<NewsResponse>
+    override fun fetchTopHeadlines() : Flowable<NewsResponse>
             = api.topHeadlines()
 
-    override fun categoryHeadlines(category : String) : Flowable<NewsResponse>
+    override fun fetchCategoryHeadlines(category : String) : Flowable<NewsResponse>
             = api.categoryHeadlines(category = category)
 }

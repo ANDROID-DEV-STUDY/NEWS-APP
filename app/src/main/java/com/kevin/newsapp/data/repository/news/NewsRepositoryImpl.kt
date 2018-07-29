@@ -11,9 +11,9 @@ class NewsRepositoryImpl @Inject constructor(
         private val localDataSource: NewsLocalDataSource
 ) : NewsRepository {
 
-    override fun topHeadlines(): Flowable<NewsResponse>
-        = remoteDataSource.topHeadlines()
+    override fun fetchTopHeadlines(): Flowable<NewsResponse>
+        = remoteDataSource.fetchTopHeadlines()
 
-    override fun categoryHeadlines(category: String): Flowable<NewsResponse>
-        = remoteDataSource.categoryHeadlines(category)
+    override fun fetchCategoryHeadlines(category: String): Flowable<NewsResponse>
+        = remoteDataSource.fetchCategoryHeadlines(category)
 }

@@ -1,6 +1,5 @@
 package com.kevin.newsapp.ui.main.player
 
-import android.annotation.SuppressLint
 import android.content.res.Resources
 import android.util.Log
 import android.view.MotionEvent
@@ -28,7 +27,6 @@ class PlayerTouchHandler constructor(
     private var dVertical: Float = 0f
     private var dHorizontal: Float = 0f
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(view: View, event: MotionEvent): Boolean {
 
         when(event.action) {
@@ -83,7 +81,7 @@ class PlayerTouchHandler constructor(
                 if(dVertical > 0 && isScaling) shrinkOrExpand()
                 else {
                     if(isMovingHorizontal && (dHorizontal > .25 || dHorizontal < -.25))
-                        dismiss()
+                        dismissInternally()
                     else
                         shrinkInternally(false)
                 }
@@ -95,7 +93,7 @@ class PlayerTouchHandler constructor(
                 if(dVertical > 0 && isScaling) shrinkOrExpand()
                 else {
                     if(isMovingHorizontal && (dHorizontal > .25 || dHorizontal < -.25))
-                        dismiss()
+                        dismissInternally()
                     else
                         shrinkInternally(false)
                 }
@@ -108,7 +106,7 @@ class PlayerTouchHandler constructor(
         return true
     }
 
-    private fun dismiss() {
+    private fun dismissInternally() {
         listener.onDismiss()
         dHorizontal = 0f
     }

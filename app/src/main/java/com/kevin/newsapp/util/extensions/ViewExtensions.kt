@@ -23,7 +23,7 @@ fun View.invisible() { visibility = View.INVISIBLE }
 
 fun View.gone() { visibility = View.GONE }
 
-fun View.onClick(func: () -> Unit) = setOnClickListener { func() }
+fun View.onClick(event: () -> Unit) = setOnClickListener { event() }
 
 // GLIDE
 fun ImageView.loadImage(url : String)
@@ -81,9 +81,10 @@ fun View.onGlobalLayout(func: () -> Unit) {
 
 fun LottieAnimationView.autoScaling(requestedScale: Float) {
     post {
-        val screenWidth = context.resources.displayMetrics.widthPixels
-        val compWidth = composition?.bounds?.width() ?: width
-        val finalScale = screenWidth / compWidth * requestedScale
+        val screenHeight = context.resources.displayMetrics.heightPixels
+        val compHeight = composition?.bounds?.height() ?: height
+        val finalScale = if(compHeight != 0) screenHeight / compHeight * requestedScale else 1f
+
         scale = finalScale
     }
 }

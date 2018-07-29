@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.kevin.newsapp.R
-import com.kevin.newsapp.ui.main.activity.MainActivity
+import com.kevin.newsapp.ui.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 

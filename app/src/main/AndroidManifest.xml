@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.activity.MainActivity" />
+        <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.sign.SignActivity" />
         <activity android:name=".ui.article.ArticleActivity"></activity>
     </application>

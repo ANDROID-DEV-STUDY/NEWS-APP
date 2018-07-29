@@ -5,7 +5,7 @@ import io.reactivex.Flowable
 
 interface NewsRemoteDataSource {
 
-    fun topHeadlines() : Flowable<NewsResponse>
+    fun fetchTopHeadlines() : Flowable<NewsResponse>
 
-    fun categoryHeadlines(category : String) : Flowable<NewsResponse>
+    fun fetchCategoryHeadlines(category : String) : Flowable<NewsResponse>
 }

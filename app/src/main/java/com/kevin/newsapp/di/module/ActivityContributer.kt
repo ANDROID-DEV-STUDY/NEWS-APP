@@ -1,8 +1,8 @@
 package com.kevin.newsapp.di.module
 
 import com.kevin.newsapp.di.scope.ActivityScope
-import com.kevin.newsapp.ui.main.activity.MainActivity
-import com.kevin.newsapp.ui.main.activity.MainModule
+import com.kevin.newsapp.ui.main.MainActivity
+import com.kevin.newsapp.ui.main.MainModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

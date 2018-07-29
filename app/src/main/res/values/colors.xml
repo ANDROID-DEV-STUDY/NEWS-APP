@@ -4,7 +4,13 @@
     <color name="colorPrimaryDark">#8c000000</color>
     <color name="colorAccent">#0d5de5</color>
 
+    <color name="colorHighlight">#1e0d5de5</color>
+
+    <color name="colorItemForeground">#3c000000</color>
+
     <color name="colorSearchBackground">#ededed</color>
+
+    <color name="VeryLightGrey">#e2f0f0f0</color>
 
     <color name="gradient_start">#0e89fb</color>
     <color name="gradient_end">#0d5de5</color>

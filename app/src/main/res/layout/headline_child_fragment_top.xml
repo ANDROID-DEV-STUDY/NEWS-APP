@@ -4,74 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.main.fragment.headline.childfragment.top.TopFragment">
 
-    <com.kevin.newsapp.view.TopNestedScrollView
-        android:id="@+id/topNestedScrollView"
+    <FrameLayout
+        android:id="@+id/topParentLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/topParentLayout"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/topRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/VeryLightGrey"
+            android:layoutAnimation="@anim/layout_animation_slide_from_bottom"
+            tools:listitem="@layout/item_recycler_view_headline" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/topWeatherTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:autoSizeTextType="uniform"
-                android:maxLines="2"
-                android:text="주원님 숨 막히는 더위가 계속되니\n되도록 실내에 머물러주세요 "
-                android:textAllCaps="false"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/topWeatherImageView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/topWeatherImageView" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/topLoadingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="loader.json"
+            app:lottie_loop="true" />
 
-            <ImageView
-                android:id="@+id/topWeatherImageView"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@color/LightGrey" />
-
-            <android.support.constraint.Barrier
-                android:id="@+id/topBarrier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:barrierDirection="bottom"
-                app:constraint_referenced_ids="topWeatherImageView, topWeatherTextView" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/topRecyclerView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/topBarrier"
-                tools:listitem="@layout/item_recycler_view_top" />
-
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/topLoadingView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/topBarrier"
-                app:lottie_autoPlay="true"
-                app:lottie_fileName="skeleton_loading.json"
-                app:lottie_loop="true" />
-
-        </android.support.constraint.ConstraintLayout>
-    </com.kevin.newsapp.view.TopNestedScrollView>
+    </FrameLayout>
 </layout>
